@@ -13,11 +13,11 @@
         <li class="nav-item active"><a class="nav-link" href="{{ path('homepage') }}">Homepage</a></li>
         <li class="nav-item submenu dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-            aria-expanded="false">Pages</a>
+            aria-expanded="false">Sections</a>
             <ul class="dropdown-menu">
-                {%  for section in sections %}
-            <li class="nav-item"><a class="nav-link" href="{{ path('section', {id:section.id}) }}">{{ section.sectiontitle }}</a></li>
-                {% endfor %}
+
+            <li class="nav-item"><a class="nav-link" href="#">Section01</a></li>
+
             </ul>
         </li>
             {% if is_granted('IS_AUTHENTICATED') %}
