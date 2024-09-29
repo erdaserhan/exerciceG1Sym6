@@ -11,7 +11,6 @@
     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
         <ul class="nav navbar-nav menu_nav justify-content-center">
         <li class="nav-item active"><a class="nav-link" href="{{ path('homepage') }}">Homepage</a></li>
-        <li class="nav-item"><a class="nav-link" href="category.html">Category</a>
         <li class="nav-item submenu dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
             aria-expanded="false">Pages</a>
@@ -20,16 +19,13 @@
             </ul>
         </li>
             {% if is_granted('IS_AUTHENTICATED') %}
-        <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Logout</a></li>
-            {% else %}
-            <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_admin') }}">Administration</a></li>
             {% endif %}
-        </ul>
-        <ul class="nav navbar-nav navbar-right navbar-social">
-        <li><a href="#"><i class="ti-facebook"></i></a></li>
-        <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-        <li><a href="#"><i class="ti-instagram"></i></a></li>
-        <li><a href="#"><i class="ti-skype"></i></a></li>
+            {%  else %}
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
+            {% endif %}
         </ul>
     </div> 
     </div>

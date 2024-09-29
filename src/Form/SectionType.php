@@ -16,11 +16,11 @@ class SectionType extends AbstractType
         $builder
             ->add('sectionTitle')
             ->add('sectionDescription')
-            ->add('posts', EntityType::class, [
+            /*->add('posts', EntityType::class, [
                 'class' => Post::class,
                 'choice_label' => 'id',
                 'multiple' => true,
-            ])
+            ])*/
         ;
     }
 

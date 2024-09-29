@@ -2,14 +2,10 @@
 
 {% block title %}{{ parent() }}{% endblock %}
 
-{% block header %}
-    <h1> {{ title }} </h1>
-    <p> {{ homepage_text }} </p>
-{% endblock %}
-
 {% block main %}
     <p><a href="{{ path('app_admin_section_index') }}">Crud section</a>
         Pour ajouter / modifier / supprimer une section</p>
     <p><a href="{{ path('app_admin_post_index') }}">Crud post</a>
         Pour ajouter / modifier / supprimer une section</p>
 {% endblock %}
+
