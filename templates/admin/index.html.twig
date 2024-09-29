@@ -1,20 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends 'template.back.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}{{ parent() }}{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-
-    This friendly message is coming from:
+{% block header %}
+    <h1> {{ title }} </h1>
     <p> {{ homepage_text }} </p>
-    <ul>
-        <li>Your controller at <code>C:/Users/erhan/OneDrive/Desktop/exerciceG1Sym6/exerciceG1Sym6/src/Controller/AdminController.php</code></li>
-        <li>Your template at <code>C:/Users/erhan/OneDrive/Desktop/exerciceG1Sym6/exerciceG1Sym6/templates/admin/index.html.twig</code></li>
-    </ul>
-</div>
+{% endblock %}
+
+{% block main %}
+    <p><a href="{{ path('app_admin_section_index') }}">Crud section</a>
+        Pour ajouter / modifier / supprimer une section</p>
+    <p><a href="{{ path('app_admin_post_index') }}">Crud post</a>
+        Pour ajouter / modifier / supprimer une section</p>
 {% endblock %}
