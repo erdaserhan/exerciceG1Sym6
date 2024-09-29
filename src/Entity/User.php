@@ -51,7 +51,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(
         options: [
-            'default' => false
+            'default' => false,
         ]
     )]
     private ?bool $userActive = null;
