@@ -4,6 +4,8 @@ import './js/jquery.form.js';
 import './js/jquery.validate.min.js';
 import './js/mail-script.js';
 import './js/main.js';
+
+import './vendor/bootstrap/dist/css/bootstrap.min.css';
 /*
  * Welcome to your app's main JavaScript file!
  *
