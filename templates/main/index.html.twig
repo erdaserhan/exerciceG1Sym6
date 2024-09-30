@@ -42,7 +42,9 @@
                                         <a href="#">
                                             <h3>{{ post.postTitle }}</h3>
                                         </a>
-                                        <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
+                                        {% for tag in post.tags %}
+                                        <p class="tag-list-inline">Tag: <a href="#">{{ tag.tagname }}</a></p>
+                                        {% endfor %}
                                         <p>{{ post.postText }}</p>
 
                                         <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
