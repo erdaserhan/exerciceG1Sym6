@@ -13,12 +13,13 @@ use Symfony\Component\Routing\Attribute\Route;
 class MainController extends AbstractController
 {
     #[Route('/', name: 'homepage')]
-    public function index(PostRepository $postRepository): Response
+    public function index(PostRepository $postRepository, SectionRepository $sectionRepository): Response
     {
         return $this->render('main/index.html.twig', [
             'title' => 'Homepage',
             'homepage_text'=> "Nous somme le ".date('d/m/Y \à H:i'),
             'posts' => $postRepository->findAll(),
+            'sections' => $sectionRepository->findAll(),
         ]);
     }
 
