@@ -13,10 +13,8 @@ class Tag
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(
-        # On souhaite ne pas perdre la moitié
-        # des numériques... donc unsigned !
-        options: [
-            'unsigned' => true,
+        options:[
+            "unsigned" => true,
         ]
     )]
     private ?int $id = null;
