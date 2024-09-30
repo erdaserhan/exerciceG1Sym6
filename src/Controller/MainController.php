@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\TagRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Form\PostType;
@@ -38,6 +39,25 @@ class MainController extends AbstractController
             'title' => 'Section => '.$section->getSectionTitle(),
             'homepage_text' => $section->getSectionDescription(),
             'section' => $section,
+            'sections' => $sections->findAll()
+        ]);
+    }
+
+
+    #[Route(
+        path: '/tag/{id}',
+        name: 'tag',
+        requirements: ['id' => '\d+'],
+        defaults: ['id'=>1])]
+
+    public function tag(SectionRepository $sections, TagRepository $tags, int $id): Response
+    {
+        $tag = $tags->find($id);
+        return $this->render('main/tag.html.twig', [
+            'title' => 'Section => '.$tag->getTagName(),
+            'homepage_text' => $tag->getTagSlug(),
+            'tag' => $tag,
+            'tags' => $tags->findAll(),
             'sections' => $sections->findAll()
         ]);
     }

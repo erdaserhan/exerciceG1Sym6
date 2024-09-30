@@ -35,7 +35,6 @@
                                         <ul class="thumb-info">
                                             <li><a href="#"><i class="ti-user"></i>{{ post.user.username }}</a></li>
                                             <li><a href="#"><i class="ti-notepad"></i>{{ post.postDateCreated ? post.postDateCreated|date('Y-m-d') : '' }}</a></li>
-
                                         </ul>
                                     </div>
                                     <div class="details mt-20">
@@ -43,17 +42,13 @@
                                             <h3>{{ post.postTitle }}</h3>
                                         </a>
                                         {% for tag in post.tags %}
-                                        <p class="tag-list-inline">Tag: <a href="#">{{ tag.tagname }}</a></p>
+                                        <p class="tag-list-inline">Tag: <a href="{{ path('tag', {id:tag.id}) }}">{{ tag.tagname }}</a></p>
                                         {% endfor %}
                                         <p>{{ post.postText }}</p>
-
                                         <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-
                                     </div>
                                     {% endfor %}
                                 </div>
-
-
                             </div>
 
                             <!-- Start Blog Post Siddebar -->
