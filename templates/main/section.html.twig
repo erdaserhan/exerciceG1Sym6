@@ -2,23 +2,39 @@
 
 {% block title %}{{ parent() }} | {{ title }}{% endblock %}
 
-{% block header %}
-{% endblock %}
-
 {% block main %}
-    {% for post in section.posts %}
-        <h3>{{ post.postTitle }}</h3>
-        <p>Ecrit par {{ post.user.username }} le
-            {{ post.postDateCreated|date("d/m/Y \à H:i") }}</p>
-        <p>{{ post.postText }}</p>
-        <p>
-        {% for section in post.sections %}
-            <a href="{{ path('section', {id:section.id}) }}">{{ section.sectionTitle }}</a>
-        {% else %}
-            <h3>Pas encore d'articles</h3>
-        {% endfor %}
-        </p>
-    {% else %}
-        <h3>Pas encore d'articles</h3>
-    {% endfor %}
+
+
+    <section class="blog-post-area section-margin mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="single-recent-blog-post">
+                        {% for post in section.posts %}
+                        <div class="thumb">
+                            <img class="img-fluid" src="{{ asset('img/blog/blog1.png') }}" alt="">
+                            <ul class="thumb-info">
+                                <li><a href="#"><i class="ti-user"></i>{{ post.user.username }}</a></li>
+                                <li><a href="#"><i class="ti-notepad"></i>{{ post.postDateCreated ? post.postDateCreated|date('Y-m-d') : '' }}</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="details mt-20">
+                            <a href="#">
+                                <h3>{{ post.postTitle }}</h3>
+                            </a>
+                            <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
+                            <p>{{ post.postText }}</p>
+                        {% else %}
+                            <h3>Pas encore d'articles</h3>
+
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 {% endblock %}
