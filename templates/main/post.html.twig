@@ -21,7 +21,9 @@
                             <a href="{{ path('post', {id:post.id}) }}">
                                 <h3>{{ post.postTitle }}</h3>
                             </a>
+                                {% for tag in post.tags %}
                             <p class="tag-list-inline">Tag: <a href="{{ path('tag', {id:tag.id}) }}">{{ tag.tagname }}</a></p>
+                                {% endfor %}
                             <p>{{ post.postText }}</p>
                             </div>
 
