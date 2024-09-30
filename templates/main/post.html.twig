@@ -10,26 +10,21 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="single-recent-blog-post">
-                        {% for post in section.posts %}
-                        <div class="thumb">
-                            <img class="img-fluid" src="{{ asset('img/blog/blog1.png') }}" alt="">
-                            <ul class="thumb-info">
-                                <li><a href="#"><i class="ti-user"></i>{{ post.user.username }}</a></li>
-                                <li><a href="#"><i class="ti-notepad"></i>{{ post.postDateCreated ? post.postDateCreated|date('Y-m-d') : '' }}</a></li>
-
-                            </ul>
-                        </div>
-                        <div class="details mt-20">
+                            <div class="thumb">
+                                <img class="img-fluid" src="{{ asset('img/blog/blog1.png') }}" alt="">
+                                <ul class="thumb-info">
+                                    <li><a href="#"><i class="ti-user"></i>{{ post.user.username }}</a></li>
+                                    <li><a href="#"><i class="ti-notepad"></i>{{ post.postDateCreated ? post.postDateCreated|date('Y-m-d') : '' }}</a></li>
+                                </ul>
+                            </div>
+                            <div class="details mt-20">
                             <a href="{{ path('post', {id:post.id}) }}">
                                 <h3>{{ post.postTitle }}</h3>
                             </a>
                             <p class="tag-list-inline">Tag: <a href="{{ path('tag', {id:tag.id}) }}">{{ tag.tagname }}</a></p>
                             <p>{{ post.postText }}</p>
-                        {% else %}
-                            <h3>Pas encore d'articles</h3>
+                            </div>
 
-                        </div>
-                        {% endfor %}
                     </div>
                 </div>
             </div>

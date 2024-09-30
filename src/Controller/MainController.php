@@ -32,13 +32,15 @@ class MainController extends AbstractController
         requirements: ['id' => '\d+'],
         defaults: ['id'=>1])]
 
-    public function section(SectionRepository $sections, int $id): Response
+    public function section(SectionRepository $sections, TagRepository $tags, int $id): Response
     {
+        $tag = $tags->find($id);
         $section = $sections->find($id);
         return $this->render('main/section.html.twig', [
             'title' => 'Section => '.$section->getSectionTitle(),
             'homepage_text' => $section->getSectionDescription(),
             'section' => $section,
+            'tag' => $tag,
             'sections' => $sections->findAll()
         ]);
     }
@@ -57,6 +59,29 @@ class MainController extends AbstractController
             'title' => 'Section => '.$tag->getTagName(),
             'homepage_text' => $tag->getTagSlug(),
             'tag' => $tag,
+            'tags' => $tags->findAll(),
+            'sections' => $sections->findAll()
+        ]);
+    }
+
+    #[Route(
+        path: '/post/{id}',
+        name: 'post',
+        requirements: ['id' => '\d+'],
+        defaults: ['id'=>1])]
+
+    public function post(PostRepository $postRepository,SectionRepository $sections, TagRepository $tags, PostRepository $posts, int $id): Response
+    {
+        $post = $posts->find($id);
+        $tag = $tags->find($id);
+        $section = $sections->find($id);
+        return $this->render('main/post.html.twig', [
+            'title' => $post->getPostTitle(),
+            'homepage_text' => $post->getPostText(),
+            'posts' => $postRepository->findAll(),
+            'tag' => $tag,
+            'post' => $post,
+            'section' => $section,
             'tags' => $tags->findAll(),
             'sections' => $sections->findAll()
         ]);

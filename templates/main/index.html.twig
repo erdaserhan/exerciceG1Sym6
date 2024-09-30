@@ -37,15 +37,15 @@
                                             <li><a href="#"><i class="ti-notepad"></i>{{ post.postDateCreated ? post.postDateCreated|date('Y-m-d') : '' }}</a></li>
                                         </ul>
                                     </div>
-                                    <div class="details mt-20">
-                                        <a href="#">
+                                    <div class="details mt-20 mb-3">
+                                        <a href="{{ path('post', {id:post.id}) }}">
                                             <h3>{{ post.postTitle }}</h3>
                                         </a>
                                         {% for tag in post.tags %}
                                         <p class="tag-list-inline">Tag: <a href="{{ path('tag', {id:tag.id}) }}">{{ tag.tagname }}</a></p>
                                         {% endfor %}
                                         <p>{{ post.postText }}</p>
-                                        <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                                        <a class="button" href="{{ path('post', {id:post.id}) }}">Read More <i class="ti-arrow-right"></i></a>
                                     </div>
                                     {% endfor %}
                                 </div>
