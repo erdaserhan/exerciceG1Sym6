@@ -33,12 +33,12 @@ class PostType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
-            /*->add('tags', EntityType::class, [
+            ->add('tags', EntityType::class, [
                 'class' => Tag::class,
                 'choice_label' => 'id',
                 'multiple' => true,
                 'required' => false,
-            ])*/
+            ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'username',
