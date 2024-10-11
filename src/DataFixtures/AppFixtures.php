@@ -24,6 +24,9 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
 
+        //Instanciation de Faker en français
+        $faker = Faker::create('fr_FR');
+
         $user = new User();
         $user->setUsername('admin');
         $user->setUserMail('admin@gmail.com');
@@ -63,9 +66,6 @@ class AppFixtures extends Fixture
 
             $manager->persist($user);
         }
-
-        //Instanciation de Faker en français
-        $faker = Faker::create('fr_FR');
 
         # Instanciation entre 20 et 40 User sans rôles en utilisant Faker
         $hasard = mt_rand(20,40);
