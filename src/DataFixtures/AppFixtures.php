@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Post;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 # On va hasher les mot de passe
@@ -36,6 +37,8 @@ class AppFixtures extends Fixture
         $user->setUserActive(true);
         $user->setUserRealName('The Admin !');
 
+        $users[] = $user;
+
         $manager->persist($user);
 
 
@@ -50,6 +53,8 @@ class AppFixtures extends Fixture
             $user->setUserActive(true);
             $user->setUserRealName('The Redac '.$i);
 
+            $users[] = $user;
+
             $manager->persist($user);
         }
 
@@ -63,6 +68,8 @@ class AppFixtures extends Fixture
             $user->setPassword($pwdHash);
             $user->setUserActive(true);
             $user->setUserRealName('The Moderator '.$i);
+
+            $users[] = $user;
 
             $manager->persist($user);
         }
@@ -89,6 +96,13 @@ class AppFixtures extends Fixture
             $user->setUserRealName($realName);
             $manager->persist($user);
         }
+
+            for ($i = 1; $i <= 100; $i++) {
+                $post = new Post();
+                $user = array_rand($users);
+                $post->setUser($user);
+                $post->setPostTitle($faker->realTextBetween(20, 150));
+            }
 
             $manager->flush();
     }
