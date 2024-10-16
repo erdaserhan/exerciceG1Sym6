@@ -41,6 +41,7 @@ class MainController extends AbstractController
             'homepage_text' => $section->getSectionDescription(),
             'section' => $section,
             'tag' => $tag,
+            'tags' => $tags->findAll(),
             'sections' => $sections->findAll()
         ]);
     }
